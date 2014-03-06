@@ -3,6 +3,8 @@ sharelatex-docker
 
 Sharelatex instalation via Dockerfile. To build the image execute:
 
+	git clone git@github.com:tiagoboldt/sharelatex-docker.git
+	cd sharelatex-docker
 	docker build -t sharelatex .
 
 To start the instance execute: 
