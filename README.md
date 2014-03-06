@@ -11,4 +11,4 @@ To start the instance execute:
 	
 	docker run -d -p 3000:300 sharelatex 
 	
-It will be running on port 3000. Files will be kept in the user_files folder and database on db folder. 
+It will be available on http://localhost:3000. Files will be kept in the user_files folder and database on db folder. 
