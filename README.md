@@ -20,4 +20,4 @@ To start the instance execute:
 	
 	docker run -d -p 3000:3000 tiagoboldt/sharelatex-docker:sharelatex sharelatex.sh
 	
-It will be available on http://localhost:3000. Files will be kept in the user_files folder and database on db folder. Note that initialization might take up to 5 minutes before the server starts to respond. 
+It will be available on http://localhost:3000. Files will be kept in the user_files folder and database on db folder. First execution might take some time to be ready. This is due to MongoDb pre-allocation.  
