@@ -1,5 +1,5 @@
-from ubuntu:13.10
-RUN apt-get update 
+from ubuntu:latest
+RUN apt-get update
 RUN apt-get install -y --force-yes npm git mongodb-server redis-server wget lsb_release sudo
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 
