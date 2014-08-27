@@ -10,7 +10,7 @@ To acquire the build image from the docker's repositories execute:
 
 To build the image from source execute:
 
-	git clone git@github.com:tiagoboldt/sharelatex-docker.git
+	git clone https://github.com/tiagoboldt/sharelatex-docker.git
 	cd sharelatex-docker
 	docker build -t tiagoboldt/sharelatex-docker:sharelatex .
 
