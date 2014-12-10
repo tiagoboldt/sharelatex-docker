@@ -1,2 +1,2 @@
-db
-user_files
+db/*
+user_files/*
