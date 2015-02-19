@@ -18,6 +18,7 @@ To build the image from source execute:
 
 To start the instance execute: 
 	
-	docker run -d -p 3000:3000 tiagoboldt/sharelatex-docker:sharelatex sharelatex.sh
+	mkdir /srv/sharelatex-data
+	docker run -d -p 3000:3000 -v /srv/sharelatex-data:/data tiagoboldt/sharelatex-docker sharelatex.sh
 	
-It will be available on http://localhost:3000. Files will be kept in the user_files folder and database on db folder. First execution might take some time to be ready. This is due to MongoDb pre-allocation.  
+It will be available on http://localhost:3000. Files will be kept in `/srv/sharelatex-data`. First execution might take some time to be ready. This is due to MongoDb pre-allocation.  
