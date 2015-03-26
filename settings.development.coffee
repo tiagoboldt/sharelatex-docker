@@ -91,7 +91,7 @@ module.exports =
 
 	# Where your instance of ShareLaTeX can be found publicly. This is used
 	# when emails are sent out and in generated links:
-	siteUrl : 'http://localhost:3000'
+	siteUrl : 'http://localhost'
 	
 	# If provided, a sessionSecret is used to sign cookies so that they cannot be
 	# spoofed. This is recommended.
@@ -158,7 +158,7 @@ module.exports =
 	# running which conflict, or want to run the web process on port 80.
 	internal:
 		web:
-			port: webPort = 3000
+			port: webPort = 80
 			host: "0.0.0.0"
 	# 	documentupdater:
 	# 		port: docUpdaterPort = 3003
@@ -189,7 +189,7 @@ module.exports =
 	# you need to tell the other services where to find them:
 	apis:
 		web:
-			url: "http://localhost:3000"
+			url: "http://127.0.0.1"
 			user: httpAuthUser
 			pass: httpAuthPass
 	# 	documentupdater:

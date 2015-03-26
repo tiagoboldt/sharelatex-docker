@@ -9,7 +9,7 @@ RUN git clone https://github.com/scottkosty/install-tl-ubuntu.git; \
 
 RUN git clone https://github.com/sharelatex/sharelatex.git; \
 	cd sharelatex; \
-	git checkout v0.1.1; \
+	git checkout v0.1.4; \
 	npm install; \
 	npm install -g grunt-cli; \
 	grunt install
