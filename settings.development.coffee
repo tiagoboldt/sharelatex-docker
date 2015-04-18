@@ -63,13 +63,13 @@ module.exports =
 	# To use Amazon S3 as a storage backend, comment out the above config, and
 	# uncomment the following, filling in your key, secret, and bucket name:
 	#
-	# filestore:
-	# 	backend: "s3"
-	# 	stores:
-	# 		user_files: "BUCKET_NAME"
-	# 	s3:
-	# 		key: "AWS_KEY"
-	# 		secret: "AWS_SECRET"
+	#filestore:
+	#	backend: "s3"
+	#	stores:
+	#		user_files: "BUCKET_NAME"
+	#	s3:
+	#		key: "AWS_KEY"
+	#		secret: "AWS_SECRET"
 	# 		
 
 	# Local disk caching
@@ -91,7 +91,15 @@ module.exports =
 
 	# Where your instance of ShareLaTeX can be found publicly. This is used
 	# when emails are sent out and in generated links:
-	siteUrl : 'http://localhost'
+	siteUrl : 'http://localhost:3000'
+	
+	# The websocket layer of ShareLaTeX runs as separate service.
+	# When running locally or in development, you can point the client to this
+	# service directly on port 3026. If you are running behind a reverse proxy (Nginx, etc)
+	# then websocketsUrl should be the same as siteUrl, with your reverse
+	# proxy responible for sending websocket traffic to the websocket service
+	# rather than connecting directly.
+	websocketsUrl: 'http://localhost:3026'
 	
 	# If provided, a sessionSecret is used to sign cookies so that they cannot be
 	# spoofed. This is recommended.
@@ -158,56 +166,59 @@ module.exports =
 	# running which conflict, or want to run the web process on port 80.
 	internal:
 		web:
-			port: webPort = 80
+			port: webPort = 3000
 			host: "0.0.0.0"
-	# 	documentupdater:
-	# 		port: docUpdaterPort = 3003
-	# 		host: "localhost"
-	# 	filestore:
-	# 		port: filestorePort = 3009
-	# 		host: "localhost"
-	# 	chat:
-	# 		port: chatPort = 3010
-	# 		host: "localhost"
-	# 	tags:
-	# 		port: tagsPort = 3012
-	# 		host: "localhost"
-	# 	clsi:
-	# 		port: clsiPort = 3013
-	# 		host: "localhost"
-	# 	trackchanges:
-	# 		port: trackchangesPort = 3015
-	# 		host: "localhost"
-	# 	docstore:
-	# 		port: docstorePort = 3016
-	# 		host: "localhost"
-	# 	spelling:
+	#	documentupdater:
+	#		port: docUpdaterPort = 3003
+	#		host: "localhost"
+	#	filestore:
+	#		port: filestorePort = 3009
+	#		host: "localhost"
+	#	chat:
+	#		port: chatPort = 3010
+	#		host: "localhost"
+	#	tags:
+	#		port: tagsPort = 3012
+	#		host: "localhost"
+	#	clsi:
+	#		port: clsiPort = 3013
+	#		host: "localhost"
+	#	trackchanges:
+	#		port: trackchangesPort = 3015
+	#		host: "localhost"
+	#	docstore:
+	#		port: docstorePort = 3016
+	#		host: "localhost"
+	#	spelling:
 	# 		port: spellingPort = 3005
-	# 		host: "localhost"
+	#		host: "localhost"
+	#	realTime:
+	#		port: realTimeport = 3026
+	#		host: "localhost"
 
 	# If you change the above config, or run some services on remote servers,
 	# you need to tell the other services where to find them:
 	apis:
 		web:
-			url: "http://127.0.0.1"
+			url: "http://localhost:3000"
 			user: httpAuthUser
 			pass: httpAuthPass
-	# 	documentupdater:
-	# 		url : "http://localhost:#{docUpdaterPort}"
-	# 	clsi:
-	# 		url: "http://localhost:#{clsiPort}"
-	# 	filestore:
-	# 		url: "http://localhost:#{filestorePort}"
-	# 	trackchanges:
-	# 		url: "http://localhost:#{trackchangesPort}"
-	# 	docstore:
-	# 		url: "http://localhost:#{docstorePort}"
-	# 	tags:
-	# 		url: "http://localhost:#{tagsPort}"
-	# 	spelling:
-	# 		url: "http://localhost:#{spellingPort}"
-	# 	chat:
-	# 		url: "http://localhost:#{chatPort}"
+	#	documentupdater:
+	#		url : "http://localhost:#{docUpdaterPort}"
+	#	clsi:
+	#		url: "http://localhost:#{clsiPort}"
+	#	filestore:
+	#		url: "http://localhost:#{filestorePort}"
+	#	trackchanges:
+	#		url: "http://localhost:#{trackchangesPort}"
+	#	docstore:
+	#		url: "http://localhost:#{docstorePort}"
+	#	tags:
+	#		url: "http://localhost:#{tagsPort}"
+	#	spelling:
+	#		url: "http://localhost:#{spellingPort}"
+	#	chat:
+	#		url: "http://localhost:#{chatPort}"
 	
 
 # With lots of incoming and outgoing HTTP connections to different services,

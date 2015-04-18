@@ -13,6 +13,10 @@ RUN git clone https://github.com/sharelatex/sharelatex.git; \
 	npm install; \
 	npm install -g grunt-cli; \
 	grunt install
+
 ADD sharelatex.sh /usr/bin/sharelatex.sh
+ADD settings.development.coffee /sharelatex/config/settings.development.coffee
+
+CMD sharelatex.sh
 
 EXPOSE 3000
