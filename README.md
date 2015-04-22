@@ -25,7 +25,7 @@ It will be available on http://localhost:3000. Files will be kept in `/srv/share
 
 ## Create first user
 
-    docker run -d -p 3000:3000 -v /srv/sharelatex-data:/data tiagoboldt/sharelatex-docker /bin/bash
+    docker run -it -p 3000:3000 -v /srv/sharelatex-data:/data tiagoboldt/sharelatex-docker /bin/bash
     cd /sharelatex/web
     sharelatex.sh > /dev/null &
     # wait until sharelatex is available at http://localhost:3000

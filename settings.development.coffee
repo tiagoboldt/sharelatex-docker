@@ -7,8 +7,8 @@ httpAuthPass = "CRYPTO_RANDOM" # Randomly generated for you
 httpAuthUsers = {}
 httpAuthUsers[httpAuthUser] = httpAuthPass
 
-DATA_DIR = Path.resolve(Path.join(__dirname, "..", "data"))
-TMP_DIR = Path.resolve(Path.join(__dirname, "..", "tmp"))
+TMP_DIR = '/data/tmp'
+DATA_DIR = '/data'
 
 module.exports =
 	# Databases
