@@ -1,10 +1,14 @@
 #!/bin/bash
 export PATH=$PATH:/opt/texbin
 
-# create db path
-if [ ! -d /data/db ]; then
-	mkdir -p /data/db
-fi
+# create data paths
+mkdir -p /data/db
+mkdir -p /data/user_files
+mkdir -p /data/compiles
+mkdir -p /data/cache
+mkdir -p /data/tmp
+mkdir -p /data/tmp/uploads
+mkdir -p /data/tmp/dumpFolder
 
 mongod &
 redis-server &
