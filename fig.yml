@@ -1,8 +1,0 @@
-sharelatex:
-  build: .
-  command: sharelatex.sh
-  ports:
-   - "3000:3000"
-  volumes:
-   - db:/data/db
-   - user_files:/sharelatex/user_files
