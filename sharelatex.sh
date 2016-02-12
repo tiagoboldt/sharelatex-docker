@@ -37,3 +37,5 @@ SHARELATEX_CONFIG=/etc/sharelatex/settings.coffee node /sharelatex/spelling/app.
 SHARELATEX_CONFIG=/etc/sharelatex/settings.coffee node /sharelatex/tags/app.js >> /data/logs/tags.log 2>&1 &
 SHARELATEX_CONFIG=/etc/sharelatex/settings.coffee node /sharelatex/track-changes/app.js >> /data/logs/track-changes.log 2>&1 &
 SHARELATEX_CONFIG=/etc/sharelatex/settings.coffee node /sharelatex/web/app.js >> /data/logs/web.log 2>&1
+
+cd /sharelatex && grunt migrate -v
