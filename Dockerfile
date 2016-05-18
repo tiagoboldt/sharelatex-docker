@@ -15,6 +15,9 @@ RUN git clone -b v0.2.0 --single-branch https://github.com/sharelatex/sharelatex
 	npm install -g grunt-cli; \
 	grunt install;
 
+# install missing dependency until sharelatex resolves this bug	
+RUN npm install v8-profiler
+
 ADD sharelatex.sh /usr/bin/sharelatex.sh
 ADD settings.development.coffee /etc/sharelatex/settings.coffee
 
