@@ -29,6 +29,6 @@ It will be available on http://localhost:3000. Files will be kept in `/srv/share
     cd /sharelatex/web
     sharelatex.sh > /dev/null &
     # wait until sharelatex is available at http://localhost:3000
-    grunt create-admin-user --email joe@example.com
+    grunt create-admin-user --email=joe@example.com
     # click the url and set your password
     # new users can be registred at http://localhost:3000/admin/register
