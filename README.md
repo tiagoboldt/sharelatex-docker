@@ -1,6 +1,6 @@
 # sharelatex-docker
 
-A docker image for running sharelatex. Pull requests are welcomed. 
+A docker image for running sharelatex. Should work, but ShareLaTex already have their own official image: https://hub.docker.com/r/sharelatex/sharelatex/ 
 
 ## Docker Image
 
