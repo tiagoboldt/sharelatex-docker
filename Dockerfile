@@ -1,7 +1,7 @@
 FROM phusion/baseimage:latest
 RUN apt-get update
 RUN apt-get install -y aspell-*
-RUN apt-get install -y --force-yes npm git mongodb-server redis-server wget sudo time
+RUN apt-get install -y --force-yes npm git mongodb-server redis-server wget sudo time netcat
 
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 
