@@ -15,10 +15,13 @@ mongod &
 redis-server &
 
 # Waiting for mongodb to startup
+echo -n "Waiting for mongod "
 until nc -z localhost 27017
 do
     sleep 1
+    echo -n "."
 done
+echo "-- UP!"
 
 # replace CRYPTO_RANDOM in settings file
 CRYPTO_RANDOM=$(dd if=/dev/urandom bs=1 count=32 2>/dev/null | base64 -w 0 | rev | cut -b 2- | rev | tr -d '\n+/'); \
@@ -39,3 +42,4 @@ SHARELATEX_CONFIG=/etc/sharelatex/settings.coffee node /sharelatex/track-changes
 SHARELATEX_CONFIG=/etc/sharelatex/settings.coffee node /sharelatex/web/app.js >> /data/logs/web.log 2>&1
 
 cd /sharelatex && grunt migrate -v
+
