@@ -1,6 +1,7 @@
 # sharelatex-docker
 
-A docker image for running sharelatex. Should still work, but not maintained, as ShareLaTex already have their own official image: https://hub.docker.com/r/sharelatex/sharelatex/ 
+A docker image for running sharelatex. Still working, losely maintained, as ShareLaTex already has their own official image: https://hub.docker.com/r/sharelatex/sharelatex/
+In contrast to the official repository this version runs in a single container.
 
 ## Docker Image
 
@@ -15,6 +16,8 @@ To build the image from source execute:
 	git clone https://github.com/tiagoboldt/sharelatex-docker.git
 	cd sharelatex-docker
 	docker build -t tiagoboldt/sharelatex-docker:sharelatex .
+
+  Please keep in mind the building process will take up to 1 hour.
 
 ## Execution
 
@@ -34,3 +37,4 @@ It will be available on http://localhost:3000. Files will be kept in `/srv/share
     grunt create-admin-user --email=joe@example.com
     # click the url and set your password
     # new users can be registred at http://localhost:3000/admin/register
+
