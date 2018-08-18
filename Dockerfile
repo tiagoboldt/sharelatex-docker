@@ -35,14 +35,26 @@ RUN git clone https://github.com/sharelatex/sharelatex.git /sharelatex
 RUN npm config set user 0 && npm config set unsafe-perm true
 ADD package.json /
 ADD settings.development.coffee /etc/sharelatex/settings.coffee
+# ADD settings.coffee /etc/sharelatex/settings.coffee
 ADD sharelatex.sh /usr/bin/sharelatex.sh
-RUN cd / && npm install && rm package.json
-RUN cd /sharelatex && npm install && grunt install 
-RUN cd /sharelatex/web && npm install && npm install bcrypt
-RUN cd /sharelatex/web/modules && git clone https://github.com/sharelatex/launchpad-web-module.git launchpad && grunt compile
-RUN cd /sharelatex/web && grunt compile:minify
-RUN cd /sharelatex/clsi && grunt compile:bin
-RUN cd /sharelatex && bash bin/install-services
+RUN wget https://raw.githubusercontent.com/sharelatex/sharelatex-docker-image/master/git-revision.js -O /sharelatex/git-revision.js
+
+WORKDIR /
+RUN npm install && rm package.json
+
+WORKDIR /sharelatex
+RUN npm install && grunt install 
+
+WORKDIR /sharelatex/web
+RUN npm install && npm install bcrypt
+WORKDIR /sharelatex/web/modules
+RUN git clone https://github.com/sharelatex/launchpad-web-module.git launchpad && grunt compile
+
+WORKDIR /sharelatex/clsi
+RUN grunt compile:bin
+
+WORKDIR /sharelatex
+RUN bash bin/install-services
 
 # Export 
 EXPOSE 3000
