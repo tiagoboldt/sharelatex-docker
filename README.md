@@ -3,6 +3,8 @@
 A docker image for running sharelatex. Still working, losely maintained, as ShareLaTex already has their own official image: https://hub.docker.com/r/sharelatex/sharelatex/
 In contrast to the official repository this version runs in a single container.
 
+[![Build Status](https://travis-ci.com/tiagoboldt/sharelatex-docker.svg?branch=master)](https://travis-ci.com/tiagoboldt/sharelatex-docker)
+
 ## Docker Image
 
 To acquire the build image from the docker's repositories execute:
@@ -21,12 +23,12 @@ To build the image from source execute:
 
 ## Execution
 
-To start the instance execute: 
-	
+To start the instance execute:
+
 	mkdir /srv/sharelatex-data
 	docker run -d -p 3000:3000 -v /srv/sharelatex-data:/data tiagoboldt/sharelatex-docker
-	
-It will be available on http://localhost:3000. Files will be kept in `/srv/sharelatex-data`. First execution might take some time to be ready. This is due to MongoDb pre-allocation.  
+
+It will be available on http://localhost:3000. Files will be kept in `/srv/sharelatex-data`. First execution might take some time to be ready. This is due to MongoDb pre-allocation.
 
 ## Create first user
 
