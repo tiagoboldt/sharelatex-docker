@@ -5,3 +5,7 @@ services:
 script:
   - docker build -t sharelatex-docker .
 
+branches:
+  only:
+  - master
+
