@@ -13,7 +13,7 @@ RUN apt-get install -y build-essential wget nodejs unzip time imagemagick optipn
 WORKDIR /opt
 RUN wget https://s3.amazonaws.com/sharelatex-random-files/qpdf-6.0.0.tar.gz && tar xzf qpdf-6.0.0.tar.gz
 WORKDIR /opt/qpdf-6.0.0
-RUN ./configure && make && make install && ldconfig
+RUN ./configure && make -j 8 && make install && ldconfig
 
 RUN apt-get install -y texlive-full
 
