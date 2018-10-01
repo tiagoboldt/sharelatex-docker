@@ -40,3 +40,7 @@ It will be available on http://localhost:3000. Files will be kept in `/srv/share
     # click the url and set your password
     # new users can be registred at http://localhost:3000/admin/register
 
+## ShareLaTex official image
+
+ShareLaTex has an official docker image. It was introduced after this image was made available and
+it is not as well documented, hence, this image is still maintained.
