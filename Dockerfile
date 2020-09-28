@@ -15,6 +15,7 @@ RUN wget https://s3.amazonaws.com/sharelatex-random-files/qpdf-6.0.0.tar.gz && t
 WORKDIR /opt/qpdf-6.0.0
 RUN ./configure && make -j 8 && make install && ldconfig
 
+# Install textlive 
 RUN apt-get install -y texlive-full
 
 # Install NPM/Grunt dependencies.
@@ -31,6 +32,7 @@ ADD settings.development.coffee /etc/sharelatex/settings.coffee
 ADD sharelatex.sh /usr/bin/sharelatex.sh
 RUN wget https://raw.githubusercontent.com/sharelatex/sharelatex-docker-image/master/git-revision.js -O /sharelatex/git-revision.js
 
+# Install Sharelatex javascript dependencies
 WORKDIR /
 RUN npm install && rm package.json
 
@@ -42,13 +44,14 @@ RUN npm install && npm install bcrypt
 WORKDIR /sharelatex/web/modules
 RUN git clone https://github.com/sharelatex/launchpad-web-module.git launchpad && grunt compile
 
+# Compile and install Sharelatex
 WORKDIR /sharelatex/clsi
 RUN grunt compile:bin
 
 WORKDIR /sharelatex
 RUN bash bin/install-services
 
-# Export
+# Configure port and shared volume folder
 EXPOSE 3000
 VOLUME /data
 
