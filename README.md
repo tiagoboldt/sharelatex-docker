@@ -1,3 +1,6 @@
+# DEPRECATED
+This repository is no longer maintained, as Sharelatex was acquired by Overleaf, the original Sharelatex repository no longer exists, and they have official docker images.
+
 # sharelatex-docker
 
 A docker image for running sharelatex. Still working, losely maintained, as ShareLaTex already has their own official image: https://hub.docker.com/r/sharelatex/sharelatex/
